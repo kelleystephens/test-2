@@ -29,8 +29,16 @@
         words[w] = 1;
       }
     });
-    _(words).forEach((c, w)=>chart.dataProvider.push({word:w, count:c}));
+    _(words).forEach((c, w)=>chart.dataProvider.push({word:w, count:c, color: 'rgba('+color()+','+color()+','+color()+','+opacity()+')'}));
     chart.validateData();
+  }
+
+  function color(){
+    return Math.floor(Math.random() * 256);
+  }
+
+  function opacity(){
+    return Math.random().toFixed(2);
   }
 
   var chart;
